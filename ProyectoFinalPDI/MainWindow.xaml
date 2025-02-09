@@ -1,0 +1,42 @@
+﻿<Window x:Class="ProyectoFinalPDI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProyectoFinalPDI"
+        mc:Ignorable="d"
+     Title="MainWindow" Height="560" Width="810">
+    <Window.DataContext>
+        <local:MainWindowViewModel/>
+    </Window.DataContext>
+    <Grid Background="#FFEFECA0">
+        <Image Source="{Binding Image}" Margin="0,14,0,0" Height="235" VerticalAlignment="Top" Grid.ColumnSpan="2" />
+        <Button x:Name="btnIrACamara"
+                        Margin="570,447,46,29"
+                        Content="Ir a Grabado de Cámara" Click="btnIrACamara_Click" Background="#FF00F9FF" />
+
+        <RadioButton Visibility="Hidden"
+                         Margin="0,244,0,0"
+                         VerticalAlignment="Top"
+                         Content="Desktop"
+                         IsChecked="{Binding EscritorioActvo}" Grid.ColumnSpan="2" />
+        <Button
+                        Margin="10,272,688,221"
+                        Command="{Binding IniciarCamara}"
+                        Content="Start video" Background="#FF6DD40B" />
+        <Button
+                        Margin="142,333,505,148"
+                        Command="{Binding DetenerCamara}"
+                        Content="Stop video" Background="#FFB333FF" />
+
+        <Button
+                    Margin="621,251,46,216"
+                    Command="{Binding DetenerGrabacion}"
+                    Content="Stop rec" Background="#FFB333FF" />
+        <Button
+                    Margin="387,303,253,182"
+                    Command="{Binding IniciarGrabacion}"
+                    Content="Start rec" Background="#FF6DD40B" />
+    </Grid>
+</Window>
+
